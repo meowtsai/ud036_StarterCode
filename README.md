@@ -1,12 +1,18 @@
 # ud036_StarterCode
 Source code for a Movie Trailer website.
-In order by this project to work, you need to install Python first.
+In order for this project to work, you need to install Python first.
 Make sure you have internet connection for the API to work
 
 ## Install
 - Downliad all files to a folder.
 - Open Python IDLE,  open file ```entertainment_center.py```, select ```Run``` > ```Run Module```.
-- Wait few secondes for the main display page to launch from a browser.
+- Wait around 30 secondes for the main display page to launch from a browser.
+
+## Functionality
+ - A list of movies display on a HTML page.
+ - Each movie present the required content (title, art).
+ - When clicked, a trailer video shows up.
+
 
 ## TMDB API SERVER
 This project uses [TMDB](https://www.themoviedb.org/) to fetch movies data.

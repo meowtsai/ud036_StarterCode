@@ -4,9 +4,8 @@ import requests
 
 
 
-#print(lalaland.title)
-#lalaland.show_trailer()
 
+# fetch movies data from TMDB server, return a list of movies
 def get_tmdb_movies():
     response = requests.get("https://api.themoviedb.org/3/discover/movie?api_key=cb6f6a2667af1c852790468594b68e7e&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2017")
     if (response.status_code==200):
@@ -17,6 +16,7 @@ def get_tmdb_movies():
         print "movie api request failed!" + str(response.status_code)
         return []
 
+# fetch vedio data from TMDB server, return the first YouTube URL string.
 def get_videourl_by_movie(movie_id):
     videos_response = requests.get("https://api.themoviedb.org/3/movie/" + str(movie_id) + "/videos?api_key=cb6f6a2667af1c852790468594b68e7e&language=en-US")
     if (videos_response.status_code==200):
@@ -38,6 +38,7 @@ def get_videourl_by_movie(movie_id):
 movies =[]
 tmdb_movies = get_tmdb_movies()
 
+# Make all the movies in individul media.Movie() class object, store in an Array, pass the array to fresh_tomatoes.
 for movie in tmdb_movies:
     video_url=get_videourl_by_movie(movie["id"])
     temp_movie_object = media.Movie(movie["title"],
@@ -46,6 +47,7 @@ for movie in tmdb_movies:
                                     video_url)
     movies.append(temp_movie_object)
     
-    
+
+
 fresh_tomatoes.open_movies_page(movies)
 
